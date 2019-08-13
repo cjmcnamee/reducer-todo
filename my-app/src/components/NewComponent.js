@@ -4,9 +4,9 @@ import React, { useState, useReducer } from 'react';
 import { initialState, newReducer } from '../reducers/newReducer';
 
 const NewComponent = () => {
-  const [newTodo, setNewTodo] = useState('');
+  const [newTodo, setNewTodo] = useState();
 
-  const [state, dispatch] = useReducer(initialState, newReducer);
+  const [state, dispatch] = useReducer(newReducer, initialState);
 
   const handleChanges = event => {
     setNewTodo(event.target.value);
@@ -17,10 +17,12 @@ const NewComponent = () => {
       {!state.completed ? (
         <p>
           {state.item}{" "}
-          <i
+          <button
             className="todo-edit"
             onClick={() => dispatch({ type: "TOGGLE_DONE" })}
-          />
+          >
+          Edit Todo
+          </button>
         </p>
       ) : (
         <div>
@@ -41,7 +43,7 @@ const NewComponent = () => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
 export default NewComponent;

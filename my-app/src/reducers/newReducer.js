@@ -2,10 +2,10 @@ export const initialState = {
   item: 'Learn about reducers',
   completed: false,
   id: 3892987589
-}
+};
 
 export const newReducer = (state, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case 'TOGGLE_DONE':
       return {
         ...state,
