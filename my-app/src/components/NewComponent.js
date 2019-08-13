@@ -15,15 +15,19 @@ const NewComponent = () => {
   return (
     <div>
       {!state.completed ? (
-        <p>
-          {state.item}{" "}
-          <button
-            className="todo-edit"
-            onClick={() => dispatch({ type: "TOGGLE_DONE" })}
-          >
-          Edit Todo
-          </button>
-        </p>
+        <>
+          {state.todo.map(item => (
+            <div>
+              <span>{item.item}</span>
+              <button
+                className="todo-edit"
+                onClick={() => dispatch({ type: "TOGGLE_EDIT" })}
+              >
+              Edit Todo
+              </button>
+            </div>
+          ))}{" "}
+        </>
       ) : (
         <div>
           <input
@@ -31,7 +35,7 @@ const NewComponent = () => {
             type="text"
             name="newTodo"
             value={newTodo}
-            onchange={handleChanges}
+            onChange={handleChanges}
           />
           <button
             onClick={() =>
@@ -42,6 +46,7 @@ const NewComponent = () => {
           </button>
         </div>
       )}
+      <button> Clear Todo </button>
     </div>
   );
 };
