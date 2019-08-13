@@ -6,7 +6,7 @@ export const initialState = {
 
 export const newReducer = (state, action) => {
   switch(action.type) {
-    case 'TOGGLE_DONE'
+    case 'TOGGLE_DONE':
       return {
         ...state,
         completed: !state.completed

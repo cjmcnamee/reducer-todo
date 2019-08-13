@@ -17,10 +17,31 @@ const NewComponent = () => {
       {!state.completed ? (
         <p>
           {state.item}{" "}
-          create a todo! </p>
+          <i
+            className="todo-edit"
+            onClick={() => dispatch({ type: "TOGGLE_DONE" })}
+          />
+        </p>
       ) : (
-
+        <div>
+          <input
+            className="todo-input"
+            type="text"
+            name="newTodo"
+            value={newTodo}
+            onchange={handleChanges}
+          />
+          <button
+            onClick={() =>
+              dispatch({ type: "UPDATE_ITEM", payload: newTodo })
+            }
+          >
+            Update Todo
+          </button>
+        </div>
       )}
     </div>
   )
 }
+
+export default NewComponent;
