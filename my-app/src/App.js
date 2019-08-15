@@ -1,21 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import './App.css';
 
 // components
-import NewComponent from './components/NewComponent';
-
-// styles
-import './App.css';
+import TodoList from './components/TodoList';
 
 function App() {
   return (
     <div className="App">
-      <NewComponent />
+      <TodoList />
     </div>
   );
 }
-
-const rootElement = document.getElementById('root');
-ReactDOM.render(<App />, rootElement);
 
 export default App;
